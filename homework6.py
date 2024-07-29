@@ -13,7 +13,7 @@ print("Set: ", my_set)
 my_set.add("qiorno")
 a = (1, 2, 3, 1, 2, 3)
 my_set.add(a)
-print(my_set.remove(a))
+my_set.discard(a)
 print("Modified set: ", my_set)
 
 
