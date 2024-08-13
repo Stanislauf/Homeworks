@@ -7,7 +7,7 @@ def single_root_words(root_word, *other_words):
         if root_word.lower() in other_words[i].lower():
             if root_word.lower() == other_words[i].lower():
                 continue
-            same_words.append(other_words[i].lower())
+            same_words.append(other_words[i])
     return same_words
 
 
@@ -27,7 +27,7 @@ def single_root_words_2(root_word, other_words):
         if root_word.lower() in other_words[i].lower():
             if root_word.lower() == other_words[i].lower():
                 continue
-            same_words.append(other_words[i].lower())
+            same_words.append(other_words[i])
     return same_words
 
 root_word = input('Введите корерь искомого слова: ')
