@@ -8,10 +8,6 @@ class Figure:
         self.__sides = list(sides * self.sides_count)
         self.field = False
 
-#    def __initialize_sides(self, sides):      # проверка если ввели не правильно число сторон то заполняется единицами в нужном количестве сторон
-#        if len(sides) != self.sides_count:
-#            return [1] * self.sides_count
-#        return sides
 
 
     def get_color(self):
