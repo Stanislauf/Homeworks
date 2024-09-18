@@ -10,7 +10,8 @@ class Product:
         return f"{self.name}, {self.weight}, {self.category}\n"
 
 class Shop:
-    __file_name = 'products.txt'
+    def __init__(self):
+        self.__file_name = 'products.txt'
 
     def get_products(self):
         file_pr = open(self.__file_name, 'r')
@@ -28,7 +29,7 @@ class Shop:
             else:
                 file_pr = open(self.__file_name, 'a')
                 file_pr.write(str(product))
-        #file_pr.close()
+                file_pr.close()
 
 s1 = Shop()
 p1 = Product('Potato', 50.5, 'Vegetables')
@@ -38,4 +39,3 @@ print(p2)
 s1.add_product(p1, p2, p3)
 
 print(s1.get_products())
-
