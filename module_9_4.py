@@ -5,7 +5,7 @@ second = 'Рамена мало было'
 
 # Сравниваем символы строк
 result = list(map(lambda x, y: x == y, first, second))
-print(result)  # Ожидаемый результат: [False, True, True, False, False, False, False, False, True, False, False, False, False, False]
+print(result)
 
 def get_advanced_writer(file_name):
     def write_everything(*data_set):
