@@ -7,14 +7,11 @@ def read_info(name):
     with open(name, 'r') as file:
         while True:
             line = file.readline()
-            if not line:  # Если строка пустая, выходим из цикла
+            if not line:
                 break
-            all_data.append(line.strip())  # Добавляем строку, удаляя пробелы в начале и конце
-    # Можно что-то сделать с all_data, но выводить его не нужно
-
+            all_data.append(line.strip())
 
 if __name__ == '__main__':
-    # Список названий файлов
     filenames = [f'./file {number}.txt' for number in range(1, 5)]
 
     # Линейный вызов
