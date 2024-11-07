@@ -1,5 +1,5 @@
 import unittest
-from runner import Runner, Tournament  # Импортируем необходимые классы
+from runner import Runner, Tournament
 from tests_12_3 import RunnerTest, TournamentTest
 
 # Декоратор для пропуска тестов
