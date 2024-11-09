@@ -1,2 +1,14 @@
-2024-11-08 18:23:48,359 - WARNING - Неверный тип данных для объекта Runner
-2024-11-08 18:23:48,359 - WARNING - Неверная скорость для Runner
+2024-11-09 19:48:21,273 - WARNING - Неверный тип данных для объекта Runner
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Рабочий стол\Lezioni di Python\Module 12 (Поддержка цикла разработки)\tests_12_4.py", line 25, in test_run
+    runner = Runner(123, 10)
+  File "C:\Users\user\OneDrive\Рабочий стол\Lezioni di Python\Module 12 (Поддержка цикла разработки)\runner3.py", line 6, in __init__
+    raise TypeError(f'Имя может быть только строкой, передано {type(name).__name__}')
+TypeError: Имя может быть только строкой, передано int
+2024-11-09 19:48:21,275 - WARNING - Неверная скорость для Runner
+Traceback (most recent call last):
+  File "C:\Users\user\OneDrive\Рабочий стол\Lezioni di Python\Module 12 (Поддержка цикла разработки)\tests_12_4.py", line 17, in test_walk
+    runner = Runner('Тестовый Бегун', -5)
+  File "C:\Users\user\OneDrive\Рабочий стол\Lezioni di Python\Module 12 (Поддержка цикла разработки)\runner3.py", line 11, in __init__
+    raise ValueError(f'Скорость не может быть отрицательной, сейчас {speed}')
+ValueError: Скорость не может быть отрицательной, сейчас -5
