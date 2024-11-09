@@ -2,7 +2,6 @@ import unittest
 import logging
 from runner3 import Runner
 
-# Настройка логирования
 logging.basicConfig(
     level=logging.INFO,
     filename='runner_tests.log',
@@ -14,20 +13,19 @@ logging.basicConfig(
 class RunnerTest(unittest.TestCase):
     def test_walk(self):
         try:
-            runner = Runner('Вася', -5)
+            runner = Runner('Тестовый Бегун', -5)
             runner.walk()
             logging.info('"test_walk" выполнен успешно')
-        except ValueError:
-            logging.warning('Неверная скорость для Runner')
+        except ValueError as e:
+            logging.warning('Неверная скорость для Runner', exc_info=True)
 
     def test_run(self):
         try:
             runner = Runner(123, 10)
             runner.run()
             logging.info('"test_run" выполнен успешно')
-        except TypeError:
-            logging.warning('Неверный тип данных для объекта Runner')
+        except TypeError as e:
+            logging.warning('Неверный тип данных для объекта Runner', exc_info=True)
 
-# Запуск тестов
 if __name__ == '__main__':
     unittest.main()
