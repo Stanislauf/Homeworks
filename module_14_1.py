@@ -29,10 +29,12 @@ users_data = [
 cursor.executemany('INSERT INTO Users (username, email, age, balance) VALUES (?, ?, ?, ?)', users_data)
 
 # Обновление balance у каждой 2-й записи начиная с 1-й
-cursor.execute('UPDATE Users SET balance = 500 WHERE id IN (1, 3, 5, 7, 9)')
+for i in range(1, 11, 2):
+    cursor.execute('UPDATE Users SET balance = 500 WHERE id = ?', (i,))
 
 # Удаление каждой 3-й записи начиная с 1-й
-cursor.execute('DELETE FROM Users WHERE id IN (1, 4, 7, 10)')
+for i in range(1, 11, 3):
+    cursor.execute('DELETE FROM Users WHERE id = ?', (i,))
 
 # Выборка всех записей, где возраст не равен 60
 cursor.execute('SELECT username, email, age, balance FROM Users WHERE age != 60')
@@ -41,6 +43,8 @@ results = cursor.fetchall()
 # Вывод результатов в консоль
 for username, email, age, balance in results:
     print(f'Имя: {username} | Почта: {email} | Возраст: {age} | Баланс: {balance}')
+
+
 
 conn.commit()
 conn.close()
