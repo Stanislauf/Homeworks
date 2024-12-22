@@ -1,5 +1,6 @@
 from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
+from pydantic import BaseModel, conint
+from typing import Annotated
 
 app = FastAPI()
 
@@ -7,20 +8,20 @@ users = {'1': 'Имя: Example, возраст: 18'}
 
 class User(BaseModel):
     username: str
-    age: int
+    age: conint(ge=0)
 
 @app.get("/users")
 async def get_users():
     return users
 
 @app.post("/user/{username}/{age}")
-async def add_user(username: str, age: int):
+async def add_user(username: str, age: Annotated[int, conint(ge=0)]):
     new_id = str(max(map(int, users.keys()), default=0) + 1)
     users[new_id] = f'Имя: {username}, возраст: {age}'
     return f"User {new_id} is registered"
 
 @app.put("/user/{user_id}/{username}/{age}")
-async def update_user(user_id: str, username: str, age: int):
+async def update_user(user_id: str, username: str, age: Annotated[int, conint(ge=0)]):
     if user_id in users:
         users[user_id] = f'Имя: {username}, возраст: {age}'
         return f"The user {user_id} has been updated"
