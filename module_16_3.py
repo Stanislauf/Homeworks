@@ -3,7 +3,8 @@ from typing import Annotated
 
 app = FastAPI()
 
-users = {'1': 'Имя: Example, возраст: 18'}
+# Словарь для хранения пользователей
+users = {'1': 'Имя: Пример, возраст: 18'}
 
 @app.get("/users")
 def get_users():
@@ -20,7 +21,7 @@ def add_user(
 
 @app.put("/user/{user_id}/{username}/{age}")
 def update_user(
-    user_id: int,
+    user_id: Annotated[int, Path(ge=1, le=100, description="Enter User ID", example=1)],
     username: Annotated[str, Path(min_length=5, max_length=20, description="Введите имя пользователя", example="UrbanProfi")],
     age: Annotated[int, Path(ge=18, le=120, description="Введите возраст", example=28)]
 ):
@@ -31,7 +32,9 @@ def update_user(
         raise HTTPException(status_code=404, detail="User not found")
 
 @app.delete("/user/{user_id}")
-def delete_user(user_id: int):
+def delete_user(
+    user_id: Annotated[int, Path(ge=1, le=100, description="Enter User ID", example=1)]
+):
     if str(user_id) in users:
         del users[str(user_id)]
         return f"User {user_id} has been deleted"
